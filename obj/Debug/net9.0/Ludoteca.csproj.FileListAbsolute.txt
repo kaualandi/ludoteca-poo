@@ -1,0 +1,14 @@
+/Users/kaualandi/Dev/ccomp/poo/Ludoteca/bin/Debug/net9.0/Ludoteca
+/Users/kaualandi/Dev/ccomp/poo/Ludoteca/bin/Debug/net9.0/Ludoteca.deps.json
+/Users/kaualandi/Dev/ccomp/poo/Ludoteca/bin/Debug/net9.0/Ludoteca.runtimeconfig.json
+/Users/kaualandi/Dev/ccomp/poo/Ludoteca/bin/Debug/net9.0/Ludoteca.dll
+/Users/kaualandi/Dev/ccomp/poo/Ludoteca/bin/Debug/net9.0/Ludoteca.pdb
+/Users/kaualandi/Dev/ccomp/poo/Ludoteca/obj/Debug/net9.0/Ludoteca.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kaualandi/Dev/ccomp/poo/Ludoteca/obj/Debug/net9.0/Ludoteca.AssemblyInfoInputs.cache
+/Users/kaualandi/Dev/ccomp/poo/Ludoteca/obj/Debug/net9.0/Ludoteca.AssemblyInfo.cs
+/Users/kaualandi/Dev/ccomp/poo/Ludoteca/obj/Debug/net9.0/Ludoteca.csproj.CoreCompileInputs.cache
+/Users/kaualandi/Dev/ccomp/poo/Ludoteca/obj/Debug/net9.0/Ludoteca.dll
+/Users/kaualandi/Dev/ccomp/poo/Ludoteca/obj/Debug/net9.0/refint/Ludoteca.dll
+/Users/kaualandi/Dev/ccomp/poo/Ludoteca/obj/Debug/net9.0/Ludoteca.pdb
+/Users/kaualandi/Dev/ccomp/poo/Ludoteca/obj/Debug/net9.0/Ludoteca.genruntimeconfig.cache
+/Users/kaualandi/Dev/ccomp/poo/Ludoteca/obj/Debug/net9.0/ref/Ludoteca.dll
