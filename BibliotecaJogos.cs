@@ -69,10 +69,12 @@ public class BibliotecaJogos
             if (!File.Exists(caminhoArquivo))
             {
                 EscreverLog("Arquivo de dados não encontrado. Iniciando com dados vazios.");
+                Console.WriteLine("Arquivo biblioteca.json não encontrado. Iniciando com dados vazios.");
                 return;
             }
 
             string json = File.ReadAllText(caminhoArquivo);
+            Console.WriteLine($"Carregando dados de: {Path.GetFullPath(caminhoArquivo)}");
             
             // [AV1-3] Deserialização JSON
             DadosBiblioteca? dados = JsonSerializer.Deserialize<DadosBiblioteca>(json);
@@ -83,13 +85,28 @@ public class BibliotecaJogos
                 Membros = dados.Membros ?? new List<Membro>();
                 Emprestimos = dados.Emprestimos ?? new List<Emprestimo>();
                 
-                EscreverLog($"Dados carregados com sucesso: {Jogos.Count} jogos, {Membros.Count} membros, {Emprestimos.Count} empréstimos");
+                string mensagem = $"Dados carregados com sucesso: {Jogos.Count} jogos, {Membros.Count} membros, {Emprestimos.Count} empréstimos";
+                EscreverLog(mensagem);
+                Console.WriteLine(mensagem);
             }
+            else
+            {
+                EscreverLog("Dados JSON inválidos ou nulos.");
+                Console.WriteLine("Erro: dados JSON inválidos.");
+            }
+        }
+        catch (JsonException ex)
+        {
+            string erro = $"Erro de JSON ao carregar dados: {ex.Message}";
+            EscreverLog(erro);
+            Console.WriteLine($"ERRO: JSON inválido - {ex.Message}");
+            Console.WriteLine("Iniciando com dados vazios devido ao erro no JSON.");
         }
         catch (Exception ex)
         {
-            EscreverLog($"Erro ao carregar dados: {ex.Message}");
-            // Não propagar a exceção para permitir inicialização com dados vazios
+            string erro = $"Erro ao carregar dados: {ex.Message}";
+            EscreverLog(erro);
+            Console.WriteLine($"ERRO: {erro}");
         }
     }
 
@@ -139,7 +156,9 @@ public class BibliotecaJogos
             throw new InvalidOperationException($"O membro '{membro.Nome}' possui multa pendente de R$ {membro.MultaPendente:F2}.");
 
         // Criar empréstimo
-        Emprestimo emprestimo = new Emprestimo(jogoId, membroId, jogo.Nome, membro.Nome);
+        Emprestimo emprestimo = new Emprestimo(jogoId, membroId);
+        emprestimo.NomeJogo = jogo.Nome;
+        emprestimo.NomeMembro = membro.Nome;
         Emprestimos.Add(emprestimo);
         
         // Marcar jogo como indisponível

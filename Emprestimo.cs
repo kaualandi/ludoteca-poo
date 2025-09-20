@@ -7,8 +7,19 @@ public class Emprestimo
     private const decimal MULTA_POR_DIA = 5.0m;
     private const int DIAS_PRAZO = 7;
 
+    // Construtor vazio para deserialização JSON
+    public Emprestimo()
+    {
+        Id = Guid.NewGuid();
+        NomeJogo = string.Empty;
+        NomeMembro = string.Empty;
+        DataEmprestimo = DateTime.Now;
+        DataPrevistaDevolucao = DateTime.Now.AddDays(7);
+        Ativo = true;
+    }
+
     // [AV1-2] Construtor com validações
-    public Emprestimo(Guid jogoId, Guid membroId, string nomeJogo, string nomeMembro)
+    public Emprestimo(Guid jogoId, Guid membroId, int diasEmprestimo = 7)
     {
         if (jogoId == Guid.Empty)
             throw new ArgumentException("ID do jogo não pode ser vazio.", nameof(jogoId));
@@ -16,32 +27,28 @@ public class Emprestimo
         if (membroId == Guid.Empty)
             throw new ArgumentException("ID do membro não pode ser vazio.", nameof(membroId));
         
-        if (string.IsNullOrWhiteSpace(nomeJogo))
-            throw new ArgumentException("Nome do jogo não pode estar vazio.", nameof(nomeJogo));
-        
-        if (string.IsNullOrWhiteSpace(nomeMembro))
-            throw new ArgumentException("Nome do membro não pode estar vazio.", nameof(nomeMembro));
+        if (diasEmprestimo <= 0)
+            throw new ArgumentException("Dias de empréstimo deve ser maior que zero.", nameof(diasEmprestimo));
 
         Id = Guid.NewGuid();
         JogoId = jogoId;
         MembroId = membroId;
-        NomeJogo = nomeJogo;
-        NomeMembro = nomeMembro;
+        NomeJogo = string.Empty;
+        NomeMembro = string.Empty;
         DataEmprestimo = DateTime.Now;
-        DataPrevistaDevolucao = DateTime.Now.AddDays(DIAS_PRAZO);
+        DataPrevistaDevolucao = DateTime.Now.AddDays(diasEmprestimo);
         DataDevolucao = null;
         Ativo = true;
-        MultaCalculada = 0.0m;
     }
 
     // [AV1-2] Propriedades com encapsulamento
-    public Guid Id { get; private set; }
-    public Guid JogoId { get; private set; }
-    public Guid MembroId { get; private set; }
-    public string NomeJogo { get; private set; }
-    public string NomeMembro { get; private set; }
-    public DateTime DataEmprestimo { get; private set; }
-    public DateTime DataPrevistaDevolucao { get; private set; }
+    public Guid Id { get; set; }
+    public Guid JogoId { get; set; }
+    public Guid MembroId { get; set; }
+    public string NomeJogo { get; set; } = string.Empty;
+    public string NomeMembro { get; set; } = string.Empty;
+    public DateTime DataEmprestimo { get; set; }
+    public DateTime DataPrevistaDevolucao { get; set; }
     public DateTime? DataDevolucao { get; set; }
     public bool Ativo { get; set; }
     public decimal MultaCalculada { get; set; }

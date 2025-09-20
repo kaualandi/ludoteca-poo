@@ -29,3 +29,8 @@
 [2025-09-15 20:22:11] Dados salvos com sucesso em data/biblioteca.json
 [2025-09-15 20:23:22] Dados salvos com sucesso em data/biblioteca.json
 [2025-09-15 20:23:40] Dados carregados com sucesso: 2 jogos, 2 membros, 2 empréstimos
+[2025-09-15 20:56:21] Erro ao carregar dados: Ano de publicação inválido. (Parameter 'anoPublicacao')
+[2025-09-15 20:56:39] Erro ao carregar dados: Ano de publicação inválido. (Parameter 'anoPublicacao')
+[2025-09-15 20:58:23] Erro ao carregar dados: Nome do jogo não pode estar vazio. (Parameter 'nomeJogo')
+[2025-09-15 21:04:31] Dados carregados com sucesso: 2 jogos, 1 membros, 1 empréstimos
+[2025-09-15 21:06:20] Dados carregados com sucesso: 2 jogos, 2 membros, 2 empréstimos

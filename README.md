@@ -1,4 +1,115 @@
-# Ludoteca .NET
+# Ludoteca .NET - Sistema de Controle de Empréstimo de Jogos
+
+## Descrição
+
+Sistema de console desenvolvido em C# .NET 9 para controle de empréstimo de jogos de tabuleiro de um clube universitário.
+
+## Funcionalidades
+
+- Cadastro de jogos e membros
+- Sistema de empréstimo e devolução
+- Cálculo automático de multas por atraso
+- Persistência de dados em JSON
+- Relatórios e logs de sistema
+- Interface de menu interativa
+
+## Estrutura das Classes
+
+### Jogo.cs
+- **Construtor** (linha 18): `Jogo(string nome, int anoPublicacao, string categoria, int jogadoresMin = 1, int jogadoresMax = 10)`
+- **Propriedades validadas** (linhas 8-24): Validações de nome, ano de publicação, categoria e número de jogadores
+
+### Membro.cs
+- **Construtor** (linha 23): `Membro(string nome, string email, string telefone, string matricula)`
+- **Propriedades validadas** (linhas 13-29): Validações de nome, email, telefone e matrícula
+
+### Emprestimo.cs
+- **Construtor** (linha 23): `Emprestimo(Guid jogoId, Guid membroId, int diasEmprestimo = 7)`
+- **Propriedades validadas** (linhas 13-29): Validações de IDs e prazo de empréstimo
+
+### BibliotecaJogos.cs
+- **Construtor** (linha 17): `BibliotecaJogos()`
+- **Propriedades validadas** (linhas 11-14): Listas encapsuladas de jogos, membros e empréstimos
+
+## Persistência de Dados
+
+- **Método Salvar()** (linha 33): Serialização JSON com `System.Text.Json` // [AV1-3]
+- **Método Carregar()** (linha 65): Deserialização JSON com `System.Text.Json` // [AV1-3]
+- Arquivo: `data/biblioteca.json`
+
+## Menu Principal
+
+O sistema apresenta as seguintes opções (Program.cs):
+
+1. **Cadastrar jogo** // [AV1-4-Cadastrar-Jogo] (linha 17)
+2. **Cadastrar membro** // [AV1-4-Cadastrar-Membro] (linha 18)
+3. **Listar jogos** // [AV1-4-Listar] (linha 19)
+4. **Emprestar jogo** // [AV1-4-Emprestar] (linha 20)
+5. **Devolver jogo** // [AV1-4-Devolver] (linha 21)
+6. **Gerar relatório** // [AV1-4-Relatorio] (linha 22)
+7. **Listar membros** // [AV1-4-Listar-Membros] (linha 23)
+8. **Pagar multa** // [AV1-4-Pagar-Multa] (linha 24)
+9. **Salvar dados** // [AV1-4-Salvar] (linha 25)
+10. **Recarregar dados** // [AV1-4-Recarregar] (linha 26)
+0. **Sair** // [AV1-4-Sair] (linha 27)
+
+## Tratamento de Exceções
+
+O sistema implementa tratamento robusto de exceções // [AV1-5]:
+
+- `InvalidOperationException`: Para operações inválidas (duplo empréstimo, membro inativo, etc.)
+- `ArgumentException`: Para validação de parâmetros
+- `JsonException`: Para erros de formato JSON
+- Try/catch implementados em todas as operações críticas
+
+## Como Executar
+
+```bash
+dotnet build
+dotnet run
+```
+
+## Arquivos de Sistema
+
+- **Dados**: `data/biblioteca.json` - Persistência principal
+- **Relatório**: `relatorio.txt` - Relatórios do sistema
+- **Log**: `debug.log` - Log de erros e eventos
+
+## Correção do Problema de Persistência Manual
+
+**Problema identificado**: Quando o arquivo `biblioteca.json` era editado manualmente, o sistema não carregava os dados corretamente.
+
+**Causa**: Validações rigorosas nos construtores das classes impediam a deserialização de dados que não atendiam aos critérios (ex: jogos antigos como Xadrez de 1475).
+
+**Solução implementada**:
+1. **Construtores vazios** adicionados para deserialização JSON
+2. **Propriedades com setters públicos** para permitir deserialização
+3. **Validações ajustadas** (ano mínimo de 1400 para jogos históricos)
+4. **Melhor tratamento de erros** com mensagens específicas para problemas de JSON
+5. **Opção de recarregamento** manual (opção 10 no menu)
+
+### Como testar a correção:
+
+1. Edite manualmente o arquivo `data/biblioteca.json`
+2. Execute o programa - verá mensagem de carregamento com status
+3. Use opção 10 para recarregar dados se necessário
+4. Verifique o arquivo `debug.log` para detalhes de erros
+
+## Evidências
+
+As evidências devem ser colocadas na pasta `/evidencias/av1/` conforme especificado nos requisitos.
+
+## Diagrama UML
+
+[Inserir aqui o link para o arquivo PNG do diagrama UML das classes]
+
+## Vídeo Demonstrativo
+
+[Inserir aqui o link do vídeo demonstrativo do sistema]
+
+---
+
+Sistema desenvolvido para atender aos requisitos da Avaliação AV1 de Programação Orientada a Objetos. .NET
 
 Sistema de controle de empréstimo de jogos de tabuleiro desenvolvido em C# .NET 9 para um clube universitário.
 

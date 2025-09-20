@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Ludoteca")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5311c5122feff6d9ecde6d7b737b0c11d91e6c2d")]
 [assembly: System.Reflection.AssemblyProductAttribute("Ludoteca")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Ludoteca")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

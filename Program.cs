@@ -24,6 +24,7 @@ while (continuar)
         Console.WriteLine("7 Listar membros");       // [AV1-4-Listar-Membros]
         Console.WriteLine("8 Pagar multa");          // [AV1-4-Pagar-Multa]
         Console.WriteLine("9 Salvar dados");         // [AV1-4-Salvar]
+        Console.WriteLine("10 Recarregar dados");    // [AV1-4-Recarregar]
         Console.WriteLine("0 Sair");                 // [AV1-4-Sair]
         Console.Write("Opção: ");
 
@@ -59,6 +60,9 @@ while (continuar)
             case "9": // [AV1-4-Salvar]
                 SalvarDados(biblioteca);
                 break;
+            case "10": // [AV1-4-Recarregar]
+                RecarregarDados(biblioteca);
+                break;
             case "0": // [AV1-4-Sair]
                 continuar = false;
                 Console.WriteLine("Salvando dados automaticamente...");
@@ -66,7 +70,7 @@ while (continuar)
                 Console.WriteLine("Obrigado por usar a Ludoteca .NET!");
                 break;
             default:
-                Console.WriteLine("❌ Opção inválida! Por favor, escolha uma opção entre 0 e 9.");
+                Console.WriteLine("❌ Opção inválida! Por favor, escolha uma opção entre 0 e 10.");
                 break;
         }
 
@@ -446,5 +450,19 @@ static void SalvarDados(BibliotecaJogos biblioteca)
     catch (Exception ex)
     {
         Console.WriteLine($"❌ Erro ao salvar dados: {ex.Message}");
+    }
+}
+
+static void RecarregarDados(BibliotecaJogos biblioteca)
+{
+    try
+    {
+        Console.WriteLine("🔄 Recarregando dados do arquivo biblioteca.json...");
+        biblioteca.Carregar();
+        Console.WriteLine("✅ Dados recarregados com sucesso!");
+    }
+    catch (Exception ex)
+    {
+        Console.WriteLine($"❌ Erro ao recarregar dados: {ex.Message}");
     }
 }

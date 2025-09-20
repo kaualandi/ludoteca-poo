@@ -4,6 +4,19 @@ namespace Ludoteca;
 
 public class Membro
 {
+    // Construtor vazio para deserialização JSON
+    public Membro()
+    {
+        Id = Guid.NewGuid();
+        Nome = string.Empty;
+        Email = string.Empty;
+        Telefone = string.Empty;
+        Matricula = string.Empty;
+        DataCadastro = DateTime.Now;
+        Ativo = true;
+        MultaPendente = 0.0m;
+    }
+
     // [AV1-2] Construtor com validações
     public Membro(string nome, string email, string telefone, string matricula)
     {
@@ -30,12 +43,12 @@ public class Membro
     }
 
     // [AV1-2] Propriedades com encapsulamento
-    public Guid Id { get; private set; }
-    public string Nome { get; private set; }
-    public string Email { get; private set; }
-    public string Telefone { get; private set; }
-    public string Matricula { get; private set; }
-    public DateTime DataCadastro { get; private set; }
+    public Guid Id { get; set; }
+    public string Nome { get; set; } = string.Empty;
+    public string Email { get; set; } = string.Empty;
+    public string Telefone { get; set; } = string.Empty;
+    public string Matricula { get; set; } = string.Empty;
+    public DateTime DataCadastro { get; set; }
     public bool Ativo { get; set; }
     public decimal MultaPendente { get; set; }
 

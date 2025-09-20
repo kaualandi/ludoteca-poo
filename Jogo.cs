@@ -4,13 +4,23 @@ namespace Ludoteca;
 
 public class Jogo
 {
+    // Construtor vazio para deserialização JSON
+    public Jogo()
+    {
+        Id = Guid.NewGuid();
+        Nome = string.Empty;
+        Categoria = string.Empty;
+        DataCadastro = DateTime.Now;
+        Disponivel = true;
+    }
+
     // [AV1-2] Construtor com validações
     public Jogo(string nome, int anoPublicacao, string categoria, int jogadoresMin = 1, int jogadoresMax = 10)
     {
         if (string.IsNullOrWhiteSpace(nome))
             throw new ArgumentException("Nome do jogo não pode estar vazio.", nameof(nome));
         
-        if (anoPublicacao < 1900 || anoPublicacao > DateTime.Now.Year)
+        if (anoPublicacao < 1400 || anoPublicacao > DateTime.Now.Year)
             throw new ArgumentException("Ano de publicação inválido.", nameof(anoPublicacao));
         
         if (string.IsNullOrWhiteSpace(categoria))
@@ -33,13 +43,13 @@ public class Jogo
     }
 
     // [AV1-2] Propriedades com encapsulamento
-    public Guid Id { get; private set; }
-    public string Nome { get; private set; }
-    public int AnoPublicacao { get; private set; }
-    public string Categoria { get; private set; }
-    public int JogadoresMin { get; private set; }
-    public int JogadoresMax { get; private set; }
-    public DateTime DataCadastro { get; private set; }
+    public Guid Id { get; set; }
+    public string Nome { get; set; } = string.Empty;
+    public int AnoPublicacao { get; set; }
+    public string Categoria { get; set; } = string.Empty;
+    public int JogadoresMin { get; set; }
+    public int JogadoresMax { get; set; }
+    public DateTime DataCadastro { get; set; }
     public bool Disponivel { get; set; }
 
     public override string ToString()

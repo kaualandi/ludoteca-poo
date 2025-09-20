@@ -12,3 +12,4 @@
 /Users/kaualandi/Dev/ccomp/poo/Ludoteca/obj/Debug/net9.0/Ludoteca.pdb
 /Users/kaualandi/Dev/ccomp/poo/Ludoteca/obj/Debug/net9.0/Ludoteca.genruntimeconfig.cache
 /Users/kaualandi/Dev/ccomp/poo/Ludoteca/obj/Debug/net9.0/ref/Ludoteca.dll
+/Users/kaualandi/Dev/ccomp/poo/Ludoteca/obj/Debug/net9.0/Ludoteca.sourcelink.json
