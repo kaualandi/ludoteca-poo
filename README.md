@@ -125,10 +125,29 @@ Sistema de controle de empréstimo de jogos de tabuleiro desenvolvido em C# .NET
 - ✅ Sistema de logs para debug
 - ✅ Validações e tratamento de exceções
 
-## 🏗️ Arquitetura
+## 🏗️ Diagramas UML
 
-### Diagrama UML
-O diagrama UML das classes está disponível em: `evidencias/av1/diagrama-uml.png`
+### 📍 **Arquivos disponíveis:**
+- **PNG**: [`evidencias/diagrama.png`](evidencias/diagrama.png)  
+- **DB Diagram**: [`evidencias/diagrama.dbml`](evidencias/diagrama.dbml)
+
+### 📖 **Como usar:**
+
+1. **DB Diagram (Interativo):**
+   - Acesse [dbdiagram.io](https://dbdiagram.io)
+   - Cole o conteúdo do arquivo `.dbml`
+   - Visualize o diagrama interativo
+   - Exporte em diversos formatos
+
+2. **PNG (Visualização):**
+   - Abra diretamente o arquivo `.png`
+   - Para usar em documentos e apresentações
+
+### 🎯 **Classes representadas:**
+- **Jogo**: Jogos de tabuleiro disponíveis
+- **Membro**: Membros do clube universitário
+- **Emprestimo**: Controle de empréstimos e devoluções  
+- **BibliotecaJogos**: Controladora principal do sistema
 
 ### Classes Implementadas
 

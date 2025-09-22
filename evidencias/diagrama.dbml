@@ -1,0 +1,87 @@
+Table Jogo {
+  Id varchar [primary key, note: 'Guid - Identificador único do jogo']
+  Nome varchar [not null, note: 'Nome do jogo de tabuleiro']
+  AnoPublicacao integer [not null, note: 'Ano de publicação (1400 - presente)']
+  Categoria varchar [not null, note: 'Categoria do jogo (Estratégia, RPG, etc.)']
+  JogadoresMin integer [not null, default: 1, note: 'Número mínimo de jogadores']
+  JogadoresMax integer [not null, default: 10, note: 'Número máximo de jogadores']
+  DataCadastro timestamp [not null, note: 'Data de cadastro no sistema']
+  Disponivel boolean [not null, default: true, note: 'Se o jogo está disponível para empréstimo']
+  
+  Note: '''
+  Classe Jogo [AV1-2]
+  - Encapsulamento com propriedades privadas
+  - Validações no construtor
+  - Controle de disponibilidade para empréstimo
+  '''
+}
+
+Table Membro {
+  Id varchar [primary key, note: 'Guid - Identificador único do membro']
+  Nome varchar [not null, note: 'Nome completo do membro']
+  Email varchar [not null, note: 'Email válido (deve conter @)']
+  Telefone varchar [not null, note: 'Número de telefone']
+  Matricula varchar [not null, unique, note: 'Matrícula única do estudante']
+  DataCadastro timestamp [not null, note: 'Data de cadastro no sistema']
+  Ativo boolean [not null, default: true, note: 'Se o membro está ativo']
+  MultaPendente decimal [not null, default: 0.0, note: 'Valor da multa pendente em R$']
+  
+  Note: '''
+  Classe Membro [AV1-2]
+  - Encapsulamento com validações
+  - Controle de status ativo/inativo
+  - Sistema de multas integrado
+  '''
+}
+
+Table Emprestimo {
+  Id varchar [primary key, note: 'Guid - Identificador único do empréstimo']
+  JogoId varchar [not null, note: 'Referência ao jogo emprestado']
+  MembroId varchar [not null, note: 'Referência ao membro que emprestou']
+  NomeJogo varchar [note: 'Nome do jogo (denormalizado para performance)']
+  NomeMembro varchar [note: 'Nome do membro (denormalizado para performance)']
+  DataEmprestimo timestamp [not null, note: 'Data e hora do empréstimo']
+  DataPrevistaDevolucao timestamp [not null, note: 'Data prevista para devolução (padrão: +7 dias)']
+  DataDevolucao timestamp [note: 'Data real da devolução (null se ainda não devolvido)']
+  Ativo boolean [not null, default: true, note: 'Se o empréstimo está ativo']
+  MultaCalculada decimal [not null, default: 0.0, note: 'Multa calculada por atraso (R$ 5,00/dia)']
+  
+  Note: '''
+  Classe Emprestimo [AV1-2]
+  - Controle de prazo e multas automáticas
+  - Cálculo de R$ 5,00 por dia de atraso
+  - Validações de empréstimo ativo
+  '''
+}
+
+Table BibliotecaJogos {
+  Id varchar [primary key, note: 'Instância singleton do sistema']
+  CaminhoArquivo varchar [note: 'Caminho para data/biblioteca.json']
+  CaminhoRelatorio varchar [note: 'Caminho para relatorio.txt']
+  CaminhoLog varchar [note: 'Caminho para debug.log']
+  DataUltimaAtualizacao timestamp [note: 'Última vez que os dados foram salvos']
+  
+  Note: '''
+  Classe BibliotecaJogos [AV1-2] - Controladora Principal
+  - Gerencia todas as operações do sistema
+  - Persistência JSON [AV1-3]
+  - Geração de relatórios e logs
+  - Menu interativo [AV1-4]
+  - Tratamento de exceções [AV1-5]
+  '''
+}
+
+// BibliotecaJogos - Jogos (1:N)
+Ref biblioteca_jogos: BibliotecaJogos.Id < Jogo.Id
+
+// BibliotecaJogos - Membros (1:N)  
+Ref biblioteca_membros: BibliotecaJogos.Id < Membro.Id
+
+// BibliotecaJogos - Emprestimos (1:N)
+Ref biblioteca_emprestimos: BibliotecaJogos.Id < Emprestimo.Id
+
+// Emprestimo - Jogo (N:1)
+Ref emprestimo_jogo: Emprestimo.JogoId > Jogo.Id
+
+// Emprestimo - Membro (N:1)
+Ref emprestimo_membro: Emprestimo.MembroId > Membro.Id
