@@ -75,26 +75,6 @@ dotnet run
 - **Relatório**: `relatorio.txt` - Relatórios do sistema
 - **Log**: `debug.log` - Log de erros e eventos
 
-## Correção do Problema de Persistência Manual
-
-**Problema identificado**: Quando o arquivo `biblioteca.json` era editado manualmente, o sistema não carregava os dados corretamente.
-
-**Causa**: Validações rigorosas nos construtores das classes impediam a deserialização de dados que não atendiam aos critérios (ex: jogos antigos como Xadrez de 1475).
-
-**Solução implementada**:
-1. **Construtores vazios** adicionados para deserialização JSON
-2. **Propriedades com setters públicos** para permitir deserialização
-3. **Validações ajustadas** (ano mínimo de 1400 para jogos históricos)
-4. **Melhor tratamento de erros** com mensagens específicas para problemas de JSON
-5. **Opção de recarregamento** manual (opção 10 no menu)
-
-### Como testar a correção:
-
-1. Edite manualmente o arquivo `data/biblioteca.json`
-2. Execute o programa - verá mensagem de carregamento com status
-3. Use opção 10 para recarregar dados se necessário
-4. Verifique o arquivo `debug.log` para detalhes de erros
-
 ## Evidências
 
 As evidências devem ser colocadas na pasta `/evidencias/av1/` conforme especificado nos requisitos.
