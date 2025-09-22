@@ -19,6 +19,16 @@
       "JogadoresMax": 2,
       "DataCadastro": "2025-09-15T20:20:49.612665-03:00",
       "Disponivel": true
+    },
+    {
+      "Id": "391d6f94-f794-4672-a1ad-df0d8122cfa4",
+      "Nome": "Xadrez",
+      "AnoPublicacao": 1900,
+      "Categoria": "Estratégia",
+      "JogadoresMin": 2,
+      "JogadoresMax": 2,
+      "DataCadastro": "2025-09-22T18:44:02.566234-03:00",
+      "Disponivel": false
     }
   ],
   "Membros": [
@@ -67,7 +77,19 @@
       "DataDevolucao": "2025-09-15T20:21:56.820651-03:00",
       "Ativo": false,
       "MultaCalculada": 0.0
+    },
+    {
+      "Id": "dc5401cb-cb6a-4d9c-8377-6045d0aaba20",
+      "JogoId": "391d6f94-f794-4672-a1ad-df0d8122cfa4",
+      "MembroId": "b582ee25-2c08-49c4-8833-7184e4a2d007",
+      "NomeJogo": "Xadrez",
+      "NomeMembro": "Lucas Coco",
+      "DataEmprestimo": "2025-09-22T18:45:10.376398-03:00",
+      "DataPrevistaDevolucao": "2025-09-29T18:45:10.376422-03:00",
+      "DataDevolucao": null,
+      "Ativo": true,
+      "MultaCalculada": 0
     }
   ],
-  "DataUltimaAtualizacao": "2025-09-15T20:23:22.264447-03:00"
+  "DataUltimaAtualizacao": "2025-09-22T18:46:13.539428-03:00"
 }

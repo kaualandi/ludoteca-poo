@@ -101,7 +101,7 @@ As evidências devem ser colocadas na pasta `/evidencias/av1/` conforme especifi
 
 ## Diagrama UML
 
-[Inserir aqui o link para o arquivo PNG do diagrama UML das classes]
+![diagrama UML das classes](evidencias/diagrama.png)
 
 ## Vídeo Demonstrativo
 
@@ -267,9 +267,13 @@ Ludoteca/
 ### Evidências (Screenshots)
 As evidências solicitadas estão disponíveis em: `evidencias/av1/`
 1. `menu-principal.png` - Menu principal funcionando
+![menu principal](evidencias/av1/menu-principal.png)
 2. `cadastro-jogo.png` - Cadastro de jogo
+![cadastro jogo](evidencias/av1/cadastro-jogo.png)
 3. `emprestimo-sucesso.png` - Empréstimo realizado
+![empréstimo realizado](evidencias/av1/emprestimo-sucesso.png)
 4. `relatorio-gerado.png` - Relatório gerado
+![relatório gerado](evidencias/av1/relatorio-gerado.png)
 
 ## ⚙️ Especificações Técnicas
 
@@ -281,8 +285,10 @@ As evidências solicitadas estão disponíveis em: `evidencias/av1/`
 
 ## 👥 Desenvolvedores
 
-[Adicionar nomes dos membros do grupo aqui]
+Kauã Landi Fernando - 06009262
+Natan de Souza Sampaio - 06010668
+Guilherme da Cunha Sequeira - 06002529
 
 ---
 
-*Desenvolvido para a disciplina de Programação Orientada a Objetos*
+*Desenvolvido para a disciplina de Design e Programação Orientada a Objetos*
