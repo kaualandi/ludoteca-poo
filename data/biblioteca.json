@@ -29,6 +29,16 @@
       "JogadoresMax": 2,
       "DataCadastro": "2025-09-22T18:44:02.566234-03:00",
       "Disponivel": false
+    },
+    {
+      "Id": "90f65d45-6a73-417a-b59e-bb6e422d2493",
+      "Nome": "nba",
+      "AnoPublicacao": 2020,
+      "Categoria": "esporte",
+      "JogadoresMin": 3,
+      "JogadoresMax": 6,
+      "DataCadastro": "2025-09-22T21:27:00.0495-03:00",
+      "Disponivel": true
     }
   ],
   "Membros": [
@@ -49,6 +59,16 @@
       "Telefone": "5521973458997",
       "Matricula": "06011471",
       "DataCadastro": "2025-09-15T20:20:49.613315-03:00",
+      "Ativo": true,
+      "MultaPendente": 0.0
+    },
+    {
+      "Id": "b8fb649c-433c-4679-ad03-ad69920c95b3",
+      "Nome": "Carlos",
+      "Email": "carlos@gmail",
+      "Telefone": "2112345678",
+      "Matricula": "12345678",
+      "DataCadastro": "2025-09-22T21:27:39.713182-03:00",
       "Ativo": true,
       "MultaPendente": 0.0
     }
@@ -89,7 +109,31 @@
       "DataDevolucao": null,
       "Ativo": true,
       "MultaCalculada": 0
+    },
+    {
+      "Id": "48118ceb-4136-4398-add5-262def48fa18",
+      "JogoId": "100fe4f7-eed4-4d26-aa2b-8d1d366901b7",
+      "MembroId": "21855de0-26bc-4a8c-9d17-4160f8a907d7",
+      "NomeJogo": "Clash of Clans",
+      "NomeMembro": "Murilo Thunder",
+      "DataEmprestimo": "2025-09-22T21:24:15.304339-03:00",
+      "DataPrevistaDevolucao": "2025-09-29T21:24:15.304349-03:00",
+      "DataDevolucao": "2025-09-22T21:24:36.898514-03:00",
+      "Ativo": false,
+      "MultaCalculada": 0
+    },
+    {
+      "Id": "88301398-1eae-420d-8141-106cd5414d61",
+      "JogoId": "90f65d45-6a73-417a-b59e-bb6e422d2493",
+      "MembroId": "b8fb649c-433c-4679-ad03-ad69920c95b3",
+      "NomeJogo": "nba",
+      "NomeMembro": "Carlos",
+      "DataEmprestimo": "2025-09-22T21:28:13.134038-03:00",
+      "DataPrevistaDevolucao": "2025-09-29T21:28:13.134044-03:00",
+      "DataDevolucao": "2025-09-22T21:28:38.167983-03:00",
+      "Ativo": false,
+      "MultaCalculada": 0
     }
   ],
-  "DataUltimaAtualizacao": "2025-09-22T18:50:10.349596-03:00"
+  "DataUltimaAtualizacao": "2025-09-22T21:28:47.806913-03:00"
 }

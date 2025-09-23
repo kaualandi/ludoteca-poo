@@ -1,5 +1,5 @@
 === RELATÓRIO DA LUDOTECA ===
-Gerado em: 22/09/2025 18:46:03
+Gerado em: 22/09/2025 21:25:13
 
 TOTAL DE JOGOS: 3
 Jogos disponíveis: 1
@@ -11,7 +11,7 @@ Membros com multa: 0
 
 EMPRÉSTIMOS:
 Ativos: 1
-Finalizados: 2
+Finalizados: 3
 Atrasados: 0
 
 TOTAL EM MULTAS PENDENTES: R$ 0,00

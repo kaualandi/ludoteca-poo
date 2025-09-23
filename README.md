@@ -242,7 +242,8 @@ Ludoteca/
 
 ## 🎬 Demonstração
 
-**Vídeo de demonstração**: [Link será adicionado aqui]
+**Vídeo de demonstração**:
+[Link do vídeo](https://www.youtube.com/watch?v=45nkqjdo5_k)
 
 ### Evidências (Screenshots)
 As evidências solicitadas estão disponíveis em: `evidencias/av1/`
